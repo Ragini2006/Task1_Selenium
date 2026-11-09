@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Original form</title>
+  </head>
+  <body>
+    <h2>Form</h2>
+    <label for="fname">First Name</label>
+    <input id="fname" name="fname" type="text" /><br />
+    <label for="lname">Last Name</label>
+    <input id="lname" name="lname" type="text" /><br />
+    Gender <input type="radio" name="gender" value="Male" /> Male
+    <input type="radio" name="gender" value="Female" /> Female
+    <input type="radio" name="gender" value="Transgender" /> Transgender<br />
+    <label for="country">Country</label>
+    <select id="country" onchange="fill(this.value)">
+      <option value="">-- Select Country --</option>
+      <option>India</option>
+      <option>Canada</option></select
+    ><br />
+    <label for="state">State</label>
+    <select id="state">
+      <option value="">-- Select Country --</option>
+    </select>
+    <script>
+      var data = {
+        India: ["Andhra Pradesh", "Kerala"],
+        Canada: ["Ontario", "Quebec"],
+      };
+      function fill(c) {
+        var s = document.getElementById("state");
+        s.innerHTML = '<option value="">-- Select State --</option>';
+        (data[c] || []).forEach(function (x) {
+          var o = document.createElement("option");
+          o.text = x;
+          o.value = x;
+          s.add(o);
+        });
+      }
+    </script>
+  </body>
+</html>

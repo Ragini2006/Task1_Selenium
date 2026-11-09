@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Changed form</title>
+  <style>
+    /* Base pill styling */
+    .pill {
+      border: 1px solid #888;
+      padding: 6px 14px;
+      margin: 2px 4px;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      border-radius: 4px;
+      background-color: #f8f9fa;
+      transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .pill:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Hide the radio circle cleanly without breaking browser click/focus events */
+    .pill input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    /* Turn pill solid blue with white text when selected */
+    .pill:has(input[type="radio"]:checked) {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .r9 {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+<h2>Sign up</h2>
+<!-- order reversed, random ids/names/classes, different structure, look-alike decoy fields -->
+<div class="r9">
+  <span>State / Region</span>
+  <select id="k77" name="q3" class="zz">
+    <option value="">-- pick one --</option>
+  </select>
+</div>
+
+<div class="r9">
+  <span>Nation</span>
+  <select id="k12" name="q9" class="zz" aria-label="Country" onchange="fill(this.value)">
+    <option value="">-- pick one --</option>
+    <option>India</option>
+    <option>Canada</option>
+  </select>
+</div>
+
+<div class="r9">
+  <b>Gender</b>
+  <label class="pill">
+    <input type="radio" name="zz9" value="Female">
+    <span>Female</span>
+  </label>
+  <label class="pill">
+    <input type="radio" name="zz9" value="Male">
+    <span>Male</span>
+  </label>
+  <label class="pill">
+    <input type="radio" name="zz9" value="Other">
+    <span>Other</span>
+  </label>
+</div>
+
+<div class="r9">
+  <span>Father's First Name</span> 
+  <input name="dad" type="text">
+</div>
+
+<div class="r9">
+  <span>State of mind</span> 
+  <input name="mood" type="text">
+</div>
+
+<div class="r9">
+  <span>Last Name</span> 
+  <input id="a1" name="x1" type="text">
+</div>
+
+<div class="r9">
+  <span>First Name</span> 
+  <input id="b2" name="x2" class="c3" type="text">
+</div>
+
+<script>
+var data = {India:["Andhra Pradesh","Kerala"], Canada:["Ontario","Quebec"]};
+function fill(c){ 
+  var s = document.getElementById('k77'); 
+  s.innerHTML = '<option value="">-- pick one --</option>';
+  (data[c] || []).forEach(function(x){ 
+    var o = document.createElement('option'); 
+    o.text = x; 
+    o.value = x; 
+    s.add(o); 
+  }); 
+}
+</script>
+</body>
+</html>
